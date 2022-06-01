@@ -1,4 +1,4 @@
-# Newsletter-app
+# Newsletter App
 
-A newsletter api that used to get and store all the registered users mail info to provide the newsletter content.
+### A newsletter app which is used to store all the subscribed users mails info to provide them newsletter content.
 
