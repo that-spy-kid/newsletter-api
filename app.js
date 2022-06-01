@@ -1,9 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const request = require("request");
 const https = require("https");
-const { options } = require("request");
+
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -34,7 +33,7 @@ app.post("/", (req,res) =>{
      
     const options = {
         method : "POST",
-        auth: "that_spy_kid:c105a979048c09b88834947af694f7c3-us8"
+        auth: "that_spy_kid:a20162e97a91d416819c7fc75f616205-us8"
     }
    const request =  https.request(url, options, (response)=>{
        if(response.statusCode === 200){
@@ -43,9 +42,7 @@ app.post("/", (req,res) =>{
        else{
            res.sendFile(__dirname + "/failure.html");
        }
-         response.on("data", (data)=>{
-             console.log(JSON.parse(data));
-         })
+        
     })
    request.write(jsonData);
     request.end();
@@ -61,7 +58,6 @@ app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running on port 3000");
 });
 
-// API KEY c105a979048c09b888349~47af694f7c3-us8
-//98cbeca1a5
+
 
 
