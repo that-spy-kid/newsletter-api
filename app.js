@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const https = require("https");
+const keys = require("./secret");
 
 
 app.use(express.static("public"));
@@ -29,11 +30,11 @@ app.post("/", (req,res) =>{
     };
     const jsonData = JSON.stringify(data); 
 
-    const url = "https://us8.api.mailchimp.com/3.0/lists/98cbeca1a5";
+    const url = "https://us8.api.mailchimp.com/3.0/lists/" + keys.AUDIKEY;
      
     const options = {
         method : "POST",
-        auth: "that_spy_kid:a20162e97a91d416819c7fc75f616205-us8"
+        auth: "that_spy_kid:" + keys.APIKEY
     }
    const request =  https.request(url, options, (response)=>{
        if(response.statusCode === 200){
